@@ -17,7 +17,10 @@
 					{ "name": "email", "title": "E-mail", "type": "email", "exportable": true },
 					{ "name": "note", "title": "Note", "input": "textarea", "exportable": true },
 					{ "name": "active", "title": "Active", "type": "bool", "input": "checkbox", "display_helper": "booleanToYesNo", "exportable": true }
-				]
+				],
+				"roles_allowed_to_insert": ["admin"],
+				"roles_allowed_to_update": ["admin"],
+				"roles_allowed_to_delete": ["admin"]
 			}
 		],
 
@@ -96,6 +99,7 @@
 					"pages": [
 						{
 							"name": "insert",
+							"roles": ["admin"],
 							"components": [
 								{
 									"name": "insert_form",
@@ -135,6 +139,7 @@
 
 						{
 							"name": "edit",
+							"roles": ["admin"],
 							"route_params": ["customerId"],
 							"components": [
 								{
@@ -375,9 +380,7 @@
 						{ "title": "Customers", "route": "customers" }
 					]
 				}
-				]
-			},
-
+			]
 		},
 		"copy_files": [
 			{ "source": "files/loaddata.js", "dest": "SERVER_DIR/loaddata.js" }
